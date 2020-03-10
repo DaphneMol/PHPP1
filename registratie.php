@@ -1,4 +1,6 @@
-<?php require 'connect.php';
+<?php
+include 'config/connect.php';
+//include("registratie.php");
 
 if (!empty($_POST)) {
 
@@ -20,7 +22,11 @@ if (!empty($_POST)) {
 
     header("Location: login.php");
 }
-
+if (password_verify($password_form, $hash_database)) {
+    // Success! if given password and hash match other wise it will return false. 
+} else {
+    // Invalid credentials 
+}
 
 ?>
 
