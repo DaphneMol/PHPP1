@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once 'src/checklogin.php';
 require("config/connect.php");
 // include("registratie.php");
 
@@ -6,28 +8,49 @@ $login = "";
 
 if (!empty($_POST)) {
 
-    echo ("controleer.....");
     //controleer nu of deze gebruiker mag inloggen
+    $username = $_POST['field_email'];
+    $password = $_POST['field_password'];
 
-    $qry = $conn->query("SELECT admin FROM admin WHERE username LIKE '" . $_POST["field_email"] . "' AND password LIKE  '" . $_POST["field_password"] . "' ;");
-    if ($qry === false) {
-        echo mysqli_error($con) . " - ";
-        exit(__LINE__);
+    $qry = $conn->query("SELECT * FROM admin WHERE username LIKE '" . $username . "';");
+
+    while ($user = $qry->fetch_assoc()) {
+        $hashedPassword = $user['password'];
+    }
+
+    if (empty($hashedPassword)) {
+        echo "<script>console.log('Verkeerde e-mail')</script>";
     } else {
-        $login = false;
-        while ($product = $qry->fetch_assoc()) {
-            $login = true;
-        }
-        if ($login) {
-            //echo ("login mag");
+
+        if (password_verify($password, $hashedPassword)) {
+            // Success! if given password and hash match other wise it will return false.
+            $_SESSION['user'] = $username;
         } else {
-            //echo ("login mag NIET");
+            echo "<script>console.log('Verkeerd wachtwoord')</script>";
+            // Invalid credentials
+
         }
     }
+
+
+    // if ($qry === false) {
+    //     echo mysqli_error($con) . " - ";
+    //     exit(__LINE__);
+    // } else {
+    //     $login = false;
+
+    //     while ($product = $qry->fetch_assoc()) {
+    //         $login = true;
+    //     }
+    //     if ($login) {
+    //         //echo ("login mag");
+    //     } else {
+    //         //echo ("login mag NIET");
+    //     }
+    // }
     //exit();
     $qry->close();
 }
-
 
 
 
@@ -80,7 +103,7 @@ if (!empty($_POST)) {
                     ?>
                     <form action="login.php" method="POST">
                         <div class="form-group">
-                            <label>E-mail adres</label>
+                            <label>E-mail</label>
                             <input type="text" class="form-control" name="field_email" placeholder="Email">
                         </div>
                         <div class="form-group">

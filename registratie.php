@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once 'src/checklogin.php';
 include 'config/connect.php';
 //include("registratie.php");
 
@@ -8,8 +10,8 @@ if (!empty($_POST)) {
     //die();
 
     //db insert
-    $ingevuldun = $_POST['field_firstname'];
-    $ingevuldpw = $_POST['field_password'];
+    $ingevuldun = $_POST['field_email'];
+    $ingevuldpw = password_hash($_POST['field_password'], PASSWORD_DEFAULT);
     $sql = "INSERT INTO admin (username, `password`) VALUES ('$ingevuldun', '$ingevuldpw')";
 
     if ($conn->query($sql) === TRUE) {
@@ -22,11 +24,7 @@ if (!empty($_POST)) {
 
     header("Location: login.php");
 }
-if (password_verify($password_form, $hash_database)) {
-    // Success! if given password and hash match other wise it will return false. 
-} else {
-    // Invalid credentials 
-}
+
 
 ?>
 

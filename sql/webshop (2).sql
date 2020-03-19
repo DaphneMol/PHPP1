@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 09 mrt 2020 om 09:15
+-- Gegenereerd op: 19 mrt 2020 om 16:02
 -- Serverversie: 10.4.6-MariaDB
 -- PHP-versie: 7.1.32
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `admin` int(11) NOT NULL,
-  `username` varchar(10) NOT NULL,
+  `id` int(11) NOT NULL,
+  `username` varchar(60) NOT NULL,
   `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -38,10 +38,9 @@ CREATE TABLE `admin` (
 -- Gegevens worden geëxporteerd voor tabel `admin`
 --
 
-INSERT INTO `admin` (`admin`, `username`, `password`) VALUES
-(1, 'admin', '827ccb0eea8a706c4c34a16891f84e7b'),
-(4, 'Daphne', ''),
-(5, 'pieter', 'rwetf');
+INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+(14, 'daphne.slshc@gmail.com', '$2y$10$xNcnl1hPD1L8miNUQbVyKOY7Iu9L0hhRXAnTqr3e5B/wROQMRPq4u'),
+(15, 'aaa@aaa.aaa', '$2y$10$Bt6nPEi.o3iM7Dv3C5KLF.GT11mZrohw.5iblRi2B8aqYtgb1qPg.');
 
 -- --------------------------------------------------------
 
@@ -194,7 +193,7 @@ INSERT INTO `user` (`id`, `firstName`, `middleName`, `lastName`, `birthDate`, `e
 -- Indexen voor tabel `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
@@ -237,7 +236,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT voor een tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT voor een tabel `category`
