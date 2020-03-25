@@ -1,0 +1,44 @@
+td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.red {
+  color: rgb(160, 30, 30);
+}
+
+.red:hover {
+  color: red;
+}
+
+.blue {
+  color: rgb(16, 16, 130);
+}
+
+.blue:hover {
+  color: blue;
+}
+
+.buttons input {
+  margin-top: 10px;
+  width: 60px;
+  background-color: rgba(9, 110, 9, 0.394);
+  float: left;
+}
+
+.button2 button {
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.addbutton button {
+  margin-top: 10px;
+  background: rgba(255, 166, 0, 0.625);
+}

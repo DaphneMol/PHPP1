@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 19 mrt 2020 om 16:02
+-- Gegenereerd op: 24 mrt 2020 om 14:42
 -- Serverversie: 10.4.6-MariaDB
 -- PHP-versie: 7.1.32
 
@@ -98,6 +98,52 @@ INSERT INTO `customer` (`id`, `gender`, `firstName`, `middleName`, `lastName`, `
 (3, 'Man', 'Pascal', 'van', 'Bergen', 'Bergenstraat', 103, '', '8372PW', 'Bergenstad', 672819124, 'PascalB@gmail.com', '57c2877c1d84c4b49f3289657deca65c', 1),
 (4, 'Vrouw', 'Nikkie', 'den', 'Ouden', 'Steynlaan', 92, '', '3672DB', 'Breukelen', 683625417, 'nikkiedodo@gmail.com', '4b11e0223ffd42b77ddfd629692889ad', 1),
 (5, 'Man', 'Patrick', '', 'Mol', 'G. van Doornikstraat', 109, '', '3621HX', 'Breukelen', 627391739, 'patrickmol@gmail.com', '6c84cbd30cf9350a990bad2bcc1bec5f', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `orderDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `street` varchar(100) NOT NULL,
+  `houseNumber` int(10) NOT NULL,
+  `houseNumber_addon` varchar(5) NOT NULL,
+  `zipCode` varchar(10) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `payment` varchar(10) NOT NULL,
+  `paid` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `orders`
+--
+
+INSERT INTO `orders` (`id`, `customer_id`, `orderDate`, `street`, `houseNumber`, `houseNumber_addon`, `zipCode`, `city`, `payment`, `paid`) VALUES
+(1, 1, '2020-03-24 13:38:25', 'Kerkweg\r\n', 47, '', '3628AM', 'Kockengen', 'paypal', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `order_detail`
+--
+
+CREATE TABLE `order_detail` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `order_detail`
+--
+
+INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `amount`) VALUES
+(1, 1, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -210,6 +256,18 @@ ALTER TABLE `customer`
   ADD UNIQUE KEY `e-mailadres` (`e-mailadres`);
 
 --
+-- Indexen voor tabel `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`,`customer_id`);
+
+--
+-- Indexen voor tabel `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexen voor tabel `product`
 --
 ALTER TABLE `product`
@@ -249,6 +307,18 @@ ALTER TABLE `category`
 --
 ALTER TABLE `customer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT voor een tabel `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT voor een tabel `order_detail`
+--
+ALTER TABLE `order_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT voor een tabel `product`
