@@ -8,6 +8,9 @@
 </head>
 
 <body>
+
+    <a href="product/product_overzicht.php"><button>Overzicht Producten</button></a>
+    <a href="category/category_overzicht.php"><button>Overzicht Category</button></a>
     <a href="logout.php"><button>logout</button></a>
 </body>
 

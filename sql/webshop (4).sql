@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 24 mrt 2020 om 14:42
+-- Gegenereerd op: 26 mrt 2020 om 19:52
 -- Serverversie: 10.4.6-MariaDB
 -- PHP-versie: 7.1.32
 
@@ -60,10 +60,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `description`, `active`) VALUES
-(1, 'tafellamp', 'Tafellampen zijn binnenlampen voor op tafel.', 1),
-(2, 'buitenlamp', 'Buitenlampen zijn lampen voor buiten.', 1),
-(3, 'designlamp', 'Designlampen zijn lampen die mooi zijn.', 1),
-(4, 'bureaulamp', 'Bureaulampen zijn lampen die je op je bureau zet.', 1);
+(1, 'Heren schoenen', 'Schoenen voor heren.', 3),
+(2, 'Dames schoenen', 'Schoenen voor dames', 3),
+(3, 'Kinder schoenen', 'Schoenen voor kinderen', 2),
+(4, 'Baby schoenen', 'Schoenen voor baby\'s', 2);
 
 -- --------------------------------------------------------
 
@@ -167,15 +167,16 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `category_id`, `price`, `color`, `weight`, `active`) VALUES
-(1, 'Arstid', 'Mooi.', 1, '39.95', 'white', 300, 1),
-(2, 'buitenlamp', 'Een lamp voor buiten.', 2, '49.25', 'black', 400, 1),
-(3, 'gans-lamp', 'Een ganzen lamp voor buiten.', 2, '29.25', 'white', 200, 1),
-(4, 'giraf-lamp', 'Een giraf lamp voor buiten.', 2, '39.25', 'yellow', 400, 1),
-(5, 'hektar', 'Een lamp voor binnen.', 1, '39.25', 'green', 400, 1),
-(6, 'jesse', 'Luxe lamp.', 3, '99.75', 'orange', 700, 1),
-(7, 'lampje', 'Een lampje om neer te zetten.', 4, '19.75', 'orange', 50, 1),
-(8, 'llahra', 'Een llahra lamp.', 3, '109.95', 'black', 480, 1),
-(9, 'struisvogel-lamp', 'Een mooie buitenlamp.', 2, '99.95', 'black', 480, 1);
+(1, 'Jordan 1 Mid', 'Mooie groene schoenen', 1, '119.99', 'green', 500, 1),
+(16, 'Nike Am 97 Celebration Of The Swoosh Cos', 'Mooie witte schoenen', 1, '99.99', 'white', 600, 1),
+(17, 'Vans Authentic', 'Mooie witte schoenen', 1, '79.99', 'gray', 650, 1),
+(18, 'Buffalo Crevis', 'Mooie roze schoenen', 2, '99.99', 'pink', 800, 1),
+(19, 'Nike Air Max 2090', 'Mooie witte schoenen', 2, '149.99', 'white', 600, 1),
+(20, 'Nike Air Max 270', 'Mooie zwarte schoenen', 2, '149.99', 'black', 850, 1),
+(21, 'adidas Ozweego Suede', 'Mooie grijze schoenen', 3, '64.99', 'gray', 400, 1),
+(22, 'Nike Air Force 1', 'Mooie roze schoenen', 3, '84.99', 'pink', 450, 1),
+(23, 'Nike Tuned 1', 'Mooie grijze schoenen', 4, '59.99', 'gray', 150, 1),
+(24, ' Nike Air Force 1 Highness', 'Mooie paarse schoenen', 4, '54.99', 'paars', 150, 1);
 
 -- --------------------------------------------------------
 
@@ -195,17 +196,36 @@ CREATE TABLE `product_image` (
 --
 
 INSERT INTO `product_image` (`id`, `product_id`, `image`, `active`) VALUES
-(1, 1, 'arstid.jpg', 1),
-(2, 2, 'buitenlamp.jpg', 1),
-(3, 2, 'buitenlamp2.jpg', 1),
-(4, 3, 'gans.jpg', 1),
-(5, 4, 'giraf.jpg', 1),
-(6, 4, 'giraf2.jpg', 1),
-(7, 5, 'hektar.jpg', 1),
-(8, 6, 'jesse.png', 1),
-(9, 7, 'lampje.jpg', 1),
-(10, 8, 'llahra.png', 1),
-(11, 9, 'struisvogel.jpg', 1);
+(12, 1, 'j1.png', 1),
+(13, 1, 'j2.png', 1),
+(14, 1, 'j3.png', 1),
+(15, 16, 'am1.png', 1),
+(16, 16, 'am2.png', 1),
+(17, 16, 'am3.png', 1),
+(18, 17, 'v1.png', 1),
+(19, 17, 'v2.png', 1),
+(20, 17, 'v3.png', 1),
+(21, 18, 'b1.png', 1),
+(22, 18, 'b2.png', 1),
+(23, 18, 'b3.png', 1),
+(24, 19, 'n1.png', 1),
+(25, 19, 'n2.png', 1),
+(26, 19, 'n3.png', 1),
+(27, 20, 'air1.png', 1),
+(28, 20, 'air2.png', 1),
+(29, 20, 'air3.png', 1),
+(30, 21, 'oz1.png', 1),
+(31, 21, 'oz2.png', 1),
+(32, 21, 'oz3.png', 1),
+(33, 22, 'cair1.png', 1),
+(34, 22, 'cair2.png', 1),
+(35, 22, 'cair3.png', 1),
+(36, 23, 'bn1.png', 1),
+(37, 23, 'bn2.png', 1),
+(38, 23, 'bn3.png', 1),
+(39, 24, 'bair1.png', 1),
+(40, 24, 'bair2.png', 1),
+(41, 24, 'bair3.png', 1);
 
 -- --------------------------------------------------------
 
@@ -300,7 +320,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT voor een tabel `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT voor een tabel `customer`
@@ -324,13 +344,13 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT voor een tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT voor een tabel `product_image`
 --
 ALTER TABLE `product_image`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT voor een tabel `user`
