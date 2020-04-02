@@ -42,3 +42,7 @@ tr:nth-child(even) {
   margin-top: 10px;
   background: rgba(255, 166, 0, 0.625);
 }
+
+td {
+  padding: 4px;
+}
