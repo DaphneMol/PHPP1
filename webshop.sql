@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 26 mrt 2020 om 19:52
+-- Gegenereerd op: 02 apr 2020 om 22:03
 -- Serverversie: 10.4.6-MariaDB
 -- PHP-versie: 7.1.32
 
@@ -40,7 +40,8 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 (14, 'daphne.slshc@gmail.com', '$2y$10$xNcnl1hPD1L8miNUQbVyKOY7Iu9L0hhRXAnTqr3e5B/wROQMRPq4u'),
-(15, 'aaa@aaa.aaa', '$2y$10$Bt6nPEi.o3iM7Dv3C5KLF.GT11mZrohw.5iblRi2B8aqYtgb1qPg.');
+(15, 'aaa@aaa.aaa', '$2y$10$Bt6nPEi.o3iM7Dv3C5KLF.GT11mZrohw.5iblRi2B8aqYtgb1qPg.'),
+(16, 'vlam4695@gmail.com', '$2y$10$svqX249sSf4xunN5JfOKJuHvArI8b9nFGhHhq5D8/XvPHX59XFxmu');
 
 -- --------------------------------------------------------
 
@@ -159,24 +160,27 @@ CREATE TABLE `product` (
   `price` decimal(10,2) NOT NULL,
   `color` varchar(10) NOT NULL,
   `weight` int(10) NOT NULL,
-  `active` tinyint(1) NOT NULL
+  `active` tinyint(1) NOT NULL,
+  `image1` varchar(40) NOT NULL,
+  `image2` varchar(40) NOT NULL,
+  `image3` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `description`, `category_id`, `price`, `color`, `weight`, `active`) VALUES
-(1, 'Jordan 1 Mid', 'Mooie groene schoenen', 1, '119.99', 'green', 500, 1),
-(16, 'Nike Am 97 Celebration Of The Swoosh Cos', 'Mooie witte schoenen', 1, '99.99', 'white', 600, 1),
-(17, 'Vans Authentic', 'Mooie witte schoenen', 1, '79.99', 'gray', 650, 1),
-(18, 'Buffalo Crevis', 'Mooie roze schoenen', 2, '99.99', 'pink', 800, 1),
-(19, 'Nike Air Max 2090', 'Mooie witte schoenen', 2, '149.99', 'white', 600, 1),
-(20, 'Nike Air Max 270', 'Mooie zwarte schoenen', 2, '149.99', 'black', 850, 1),
-(21, 'adidas Ozweego Suede', 'Mooie grijze schoenen', 3, '64.99', 'gray', 400, 1),
-(22, 'Nike Air Force 1', 'Mooie roze schoenen', 3, '84.99', 'pink', 450, 1),
-(23, 'Nike Tuned 1', 'Mooie grijze schoenen', 4, '59.99', 'gray', 150, 1),
-(24, ' Nike Air Force 1 Highness', 'Mooie paarse schoenen', 4, '54.99', 'paars', 150, 1);
+INSERT INTO `product` (`id`, `name`, `description`, `category_id`, `price`, `color`, `weight`, `active`, `image1`, `image2`, `image3`) VALUES
+(1, 'Jordan 1 Mid', 'Mooie groene schoenen', 1, '119.99', 'green', 500, 1, '13817.png', '98214.png', '27573.png'),
+(4, 'Nike Am 97 Celebration Of The Swoosh Cos', 'Mooie witte schoenen', 1, '99.99', 'white', 600, 1, '46016.png', '85700.png', '73852.png'),
+(17, 'Vans Authentic', 'Mooie witte schoenen', 1, '79.99', 'gray', 650, 1, '73912.png', '14938.png', '41605.png'),
+(21, 'adidas Ozweego Suede', 'Mooie grijze schoenen', 3, '64.99', 'gray', 400, 1, '64695.png', '59525.png', '59665.png'),
+(22, 'Nike Air Force 1', 'Mooie roze schoenen', 3, '84.99', 'pink', 450, 1, '84626.png', '2351.png', '14683.png'),
+(23, 'Nike Tuned 1', 'Mooie grijze schoenen', 4, '59.99', 'gray', 150, 1, '72965.png', '21564.png', '95438.png'),
+(24, ' Nike Air Force 1 Highness', 'Mooie paarse schoenen', 4, '54.99', 'paars', 150, 1, '53980.png', '78822.png', '94020.png'),
+(31, 'Buffalo Crevis', 'Mooie roze schoenen', 2, '99.99', 'pink', 800, 1, '68734.png', '60415.png', '26424.png'),
+(32, 'Nike Air Max 2090', 'Mooie witte schoenen', 2, '149.99', 'white', 600, 1, '81645.png', '37913.png', '63392.png'),
+(33, 'Nike Air Max 270', 'Mooie zwarte schoenen', 2, '149.99', 'black', 850, 1, '91036.png', '40646.png', '95655.png');
 
 -- --------------------------------------------------------
 
@@ -249,7 +253,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `firstName`, `middleName`, `lastName`, `birthDate`, `e-mailadres`, `password`) VALUES
 (1, 'Daphne', '', 'Mol', '2002-02-16', 'daphne.slshc@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
-(2, 'Jan', 'van', 'Os', '1946-05-05', 'jos@glu.nl', '827ccb0eea8a706c4c34a16891f84e7b');
+(2, 'Jan', 'van', 'Os', '1946-05-05', 'jos@glu.nl', '827ccb0eea8a706c4c34a16891f84e7b'),
+(6, 'Pieter', 'de', 'Panda', '2929-09-29', 'pieterpanda@gmail.com', '$2y$10$WGnny3rL7Ayv7qVws/s7CedCM2KN3WsGWfnDbE9RBkkaWD84YBOdq'),
+(7, 'Niek', '', 'Vlam', '1998-04-06', 'vlam4695@gmail.com', '$2y$10$AoXNzUzCy3iOQa.QKK4JHeNtl6bUTnPPgGmbdwIltLjaOVJcWc/HS'),
+(8, 'Panda', '', 'Pieter', '2323-09-22', 'panda@gmail.com', '$2y$10$UI23phI5l3I5b9g9922v.O0Ieo29gfjkmSD6ghnPCpyWH8fR8q/qu');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -314,19 +321,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT voor een tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT voor een tabel `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT voor een tabel `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT voor een tabel `orders`
@@ -344,7 +351,7 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT voor een tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT voor een tabel `product_image`
@@ -356,7 +363,7 @@ ALTER TABLE `product_image`
 -- AUTO_INCREMENT voor een tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
