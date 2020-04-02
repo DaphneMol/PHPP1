@@ -1,6 +1,5 @@
 <?php
 require_once '../../controllers/session.php';
-require_once '../../controllers/checklogin.php';
 require_once '../../controllers/connect.php';
 
 if (!empty($_POST)) {
@@ -20,6 +19,7 @@ if (!empty($_POST)) {
         if (password_verify($password, $hashedPassword)) {
             $_SESSION['username'] = $username;
             $_SESSION['admin'] = 1;
+            header("Refresh:0; url=../index.php");
         } else {
             echo "<script>alert('Verkeerd wachtwoord')</script>";
         }
@@ -34,15 +34,14 @@ if (!empty($_POST)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <title>Admin | Login</title>
 </head>
 
 <body>
     <div class="sidenav">
         <div class="login-main-text">
-            <h2>Eigen Webshop<br> Login Page</h2>
-            <p>Dit is een eigen CMS voor de webshop</p>
+            <h2>SHOESHOE<br>Admin Login Page</h2>
         </div>
     </div>
 
@@ -59,7 +58,6 @@ if (!empty($_POST)) {
                         <input type="password" class="form-control" name="field_password" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-black">Login</button>
-                    <a href="registratie.php" class="btn btn-secondary">Registreer</a>
                 </form>
             </div>
         </div>

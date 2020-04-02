@@ -46,8 +46,8 @@ if (!empty($_POST)) {
 <body>
     <div class="sidenav">
         <div class="login-main-text">
-            <h2>Eigen Webshop<br> Login Page</h2>
-            <p>Dit is een eigen CMS voor de webshop</p>
+            <h2>SHOESHOE<br> Login Page</h2>
+            <p>Login of maak een account</p>
         </div>
     </div>
 
@@ -65,6 +65,7 @@ if (!empty($_POST)) {
                     </div>
                     <button type="submit" class="btn btn-black">Login</button>
                     <a href="registratie.php" class="btn btn-secondary">Registreer</a>
+                    <a href="admin/adminlogin.php" class="btn btn-secondary">Admin</a>
                 </form>
             </div>
         </div>
