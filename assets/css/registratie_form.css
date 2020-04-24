@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  padding: 0 auto;
+}
+body {
+  font-family: sans-serif;
+}
+
+fieldset {
+  background-color: #e9d0ef;
+  margin-top: 15px;
+  border: solid white;
+  border-radius: 5px;
+  max-width: 960px;
+  margin: 15px 8px 10px 8px;
+}
+
+form {
+  background-color: #f1f1f1;
+  padding: 5px 10px 5px 10px;
+  width: 560px;
+  display: inline-block;
+  margin-left: 500px;
+}
+
+legend {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+div {
+  margin-bottom: 10px;
+  height: 35px;
+  text-align: left;
+}
+
+input[type='submit'] {
+  float: ;
+  text-align: ;
+  color: white;
+  background-color: #8a9cc7;
+  border: solid #b87ada;
+  width: 100px;
+  height: 35px;
+  font-size: 16px;
+  margin-right: 200px;
+  margin-top: 5px;
+}
+
+input {
+  border-radius: 50px;
+  resize: vertical;
+  float: right;
+  padding: 8px;
+  width: 60%;
+}
+
+label {
+  display: inline-block;
+  text-align: left;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.order_shop {
+  text-decoration: none;
+  text-align: center;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 25%;
+  padding: 5px;
+  margin-top: 10px;
+}

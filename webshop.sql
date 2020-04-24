@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 02 apr 2020 om 22:03
+-- Gegenereerd op: 24 apr 2020 om 14:23
 -- Serverversie: 10.4.6-MariaDB
 -- PHP-versie: 7.1.32
 
@@ -124,7 +124,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `customer_id`, `orderDate`, `street`, `houseNumber`, `houseNumber_addon`, `zipCode`, `city`, `payment`, `paid`) VALUES
-(1, 1, '2020-03-24 13:38:25', 'Kerkweg\r\n', 47, '', '3628AM', 'Kockengen', 'paypal', 1);
+(1, 1, '2020-03-24 13:38:25', 'Kerkweg\r\n', 47, '', '3628AM', 'Kockengen', 'paypal', 1),
+(4, 6, '2020-04-24 12:19:24', 'Graafslaan', 12, 'a', '1251HX', 'Ede', 'paypal', 0),
+(5, 7, '2020-04-24 12:19:33', 'Rinselaan', 45, '', '5351PQ', 'Amsterdam', 'IDEAL', 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,9 @@ CREATE TABLE `order_detail` (
 --
 
 INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `amount`) VALUES
-(1, 1, 4, 2);
+(1, 1, 4, 2),
+(4, 6, 3, 1),
+(5, 7, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -339,13 +343,13 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT voor een tabel `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT voor een tabel `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT voor een tabel `product`

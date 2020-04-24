@@ -10,6 +10,7 @@ require_once '../controllers/session.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOESHOE</title>
     <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -31,7 +32,11 @@ require_once '../controllers/session.php';
                 <?php if (!isset($_SESSION['username'])) { ?>
                     <li style="float: right"><a href="login.php">Inloggen</a></li>
                     <li style="float:right"><a href="registratie.php">Registreren</a></li>
+                    <a href="../views/shopping_cart.php"><i class="fa fa-shopping-cart" style="font-size:36px;color:white;float:right;margin-top:3px"></i></a>
+
                 <?php } else { ?>
+
+
                     <li style="float: right"><a href="../controllers/logout.php">Uitloggen</a></li>
                 <?php } ?>
 
